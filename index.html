@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pomodoro Zen - Free Version</title>
+ 
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Work+Sans:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+ 
+<link rel="stylesheet" href="index.css">
+</head>
+<body>
+ 
+<!-- Top App Bar -->
+<header class="top-app-bar">
+  <div class="top-app-bar__start">
+    <span class="material-symbols-outlined icon icon--primary" aria-hidden="true">menu</span>
+    <h1 class="app-title">Pomodoro Zen</h1>
+  </div>
+  <form class="search" role="search" aria-label="Search tasks">
+    <label for="search-input" class="visually-hidden">Search tasks</label>
+    <input id="search-input" class="search__input" type="search" placeholder="Search tasks..." />
+    <button class="search__button" type="submit" aria-label="Search">
+      <span class="material-symbols-outlined" aria-hidden="true">search</span>
+    </button>
+  </form>
+  <!-- <button class="icon-button" type="button" aria-label="Settings">
+    <span class="material-symbols-outlined icon icon--primary" aria-hidden="true">settings</span>
+  </button> -->
+</header>
+ 
+<main class="main">
+ 
+  <!-- Timer Hero -->
+  <section class="timer-section">
+    <div class="timer-ring-wrap">
+      <svg class="timer-ring" viewBox="0 0 100 100" aria-hidden="true">
+        <circle class="timer-ring__track" cx="50" cy="50" r="48" />
+        <circle class="timer-ring__progress" id="timer-progress" cx="50" cy="50" r="48" />
+      </svg>
+      <div class="timer-readout">
+        <span class="timer-readout__time" id="timer-display">25:00</span>
+        <span class="timer-readout__label">Focus Time</span>
+      </div>
+    </div>
+ 
+    <div class="current-task">
+      <p class="current-task__eyebrow">Current Task</p>
+      <h2 class="current-task__name" id="current-task-name">Design Sprint</h2>
+    </div>
+  </section>
+ 
+  <!-- Controls -->
+  <section class="controls" aria-label="Timer controls">
+    <button class="control-button control-button--ghost" id="reset-btn" type="button" aria-label="Reset timer">
+      <span class="material-symbols-outlined icon icon--secondary" aria-hidden="true">replay</span>
+    </button>
+    <button class="control-button control-button--primary" id="play-pause" type="button" aria-label="Start timer">
+      <span class="material-symbols-outlined icon icon--play" id="play-pause-icon" aria-hidden="true">play_arrow</span>
+    </button>
+    <button class="control-button control-button--ghost" id="skip-btn" type="button" aria-label="Skip to next session">
+      <span class="material-symbols-outlined icon icon--secondary" aria-hidden="true">skip_next</span>
+    </button>
+  </section>
+ 
+  <!-- Task List -->
+  <section class="tasks">
+    <h3 class="tasks__heading">
+      Today&rsquo;s Tasks
+      <span class="tasks__count" id="task-count">(3)</span>
+    </h3>
+    <ul>
+      <li class="task-item task-item--done" data-duration="15m" data-task-name="Morning standup meeting">
+        <div class="task-item__start">
+          <button class="task-checkbox task-checkbox--checked" type="button" aria-label="Mark Morning standup meeting incomplete">
+            <span class="material-symbols-outlined icon icon--check icon--check-filled" aria-hidden="true">check</span>
+          </button>
+          <span class="task-item__name">Morning standup meeting</span>
+        </div>
+        <span class="task-item__duration">15m</span>
+        <button class="task-delete" type="button" aria-label="Delete Morning standup meeting">
+          <span class="material-symbols-outlined" aria-hidden="true">delete</span>
+        </button>
+      </li>
+    </ul>
+
+    <form class="add-task">
+      <input class="task-name" type="text" placeholder="Task name" aria-label="Task name" required>
+      <input class="task-duration" type="number" min="1" placeholder="Duration (min)" aria-label="Task duration (minutes)" required>
+      <button class="add-task btn" type="button">ADD</button>
+    </form>
+  </section>
+ 
+  <!-- Upsell -->
+  <section class="upsell">
+    <span class="material-symbols-outlined upsell__icon" aria-hidden="true">workspace_premium</span>
+    <h4 class="upsell__title">Deepen your focus</h4>
+    <p class="upsell__copy">Unlock detailed analytics, custom ambient sounds, and unlimited task lists.</p>
+    <button class="upsell__button" type="button">Unlock Premium Features</button>
+  </section>
+ 
+</main>
+ 
+<!-- Footer -->
+<footer class="footer">
+  <p class="footer__label">Free Version Made By YUSMAN</p>
+  <nav class="footer__links">
+    <a href="#" class="footer__link">Privacy</a>
+    <a href="#" class="footer__link">Terms</a>
+    <a href="#" class="footer__link">Support</a>
+  </nav>
+</footer>
+ 
+  <!-- Custom modal with backdrop -->
+  <div id="confirm-modal" class="confirm-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="confirm-modal__dialog" role="document" tabindex="-1">
+      <p class="confirm-modal__message">Are you sure?</p>
+      <div class="confirm-modal__actions">
+        <button class="confirm-modal__btn confirm-modal__btn--cancel" type="button">Cancel</button>
+        <button class="confirm-modal__btn confirm-modal__btn--confirm" type="button" id="confirm-modal-confirm">OK</button>
+      </div>
+    </div>
+  </div>
+  <div class="confirm-modal__backdrop"></div>
+
+  <script src="index.js"></script>
+</body>
+</html>
+
+ 
+
+
+
+
