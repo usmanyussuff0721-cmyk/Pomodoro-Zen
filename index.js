@@ -479,11 +479,20 @@
     });
   }
 
+  // ---- Upsell button behavior ----
+  const upsellButton = document.querySelector('.upsell__button');
+  if (upsellButton) {
+    upsellButton.addEventListener('click', () => {
+      showCustomConfirm('Premium features are coming soon! Stay tuned.', 'OK');
+    });
+  }
+
   // ---- Custom non-blocking confirm modal ----
   const customModal = document.getElementById('confirm-modal');
   const customModalMessage = customModal && customModal.querySelector('.confirm-modal__message');
   const customModalConfirm = customModal && customModal.querySelector('.confirm-modal__btn--confirm');
   const customModalCancel = customModal && customModal.querySelector('.confirm-modal__btn--cancel');
+  const customModalBackdrop = customModal && document.querySelector('.confirm-modal__backdrop');
 
   function showCustomConfirm(message, confirmText = 'OK') {
     return new Promise((resolve) => {
@@ -544,6 +553,9 @@
 
       customModalConfirm.addEventListener('click', onConfirm);
       customModalCancel.addEventListener('click', onCancel);
+      if (customModalBackdrop) {
+        customModalBackdrop.addEventListener('click', onCancel);
+      }
       document.addEventListener('keydown', onKey);
       // focus the cancel button for accessibility
       customModalCancel.focus();
