@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pomodoro Zen - Free Version</title>
+<title>Pomodoro Yus - Free Version</title>
  
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +19,7 @@
 <header class="top-app-bar">
   <div class="top-app-bar__start">
     <span class="material-symbols-outlined icon icon--primary" aria-hidden="true">menu</span>
-    <h1 class="app-title">Pomodoro Zen</h1>
+    <h1 class="app-title">Pomodoro Yus</h1>
   </div>
   <form class="search" role="search" aria-label="Search tasks">
     <label for="search-input" class="visually-hidden">Search tasks</label>
@@ -73,7 +73,7 @@
       Today&rsquo;s Tasks
       <span class="tasks__count" id="task-count">(3)</span>
     </h3>
-    <ul>
+    <ul id="task-list">
       <li class="task-item task-item--done" data-duration="15m" data-task-name="Morning standup meeting">
         <div class="task-item__start">
           <button class="task-checkbox task-checkbox--checked" type="button" aria-label="Mark Morning standup meeting incomplete">
@@ -88,10 +88,10 @@
       </li>
     </ul>
 
-    <form class="add-task">
+    <form id="add-task-form" class="add-task">
       <input class="task-name" type="text" placeholder="Task name" aria-label="Task name" required>
       <input class="task-duration" type="number" min="1" placeholder="Duration (min)" aria-label="Task duration (minutes)" required>
-      <button class="add-task btn" type="button">ADD</button>
+      <button id="add-task-btn" class="add-task-btn btn" type="button">ADD</button>
     </form>
   </section>
  

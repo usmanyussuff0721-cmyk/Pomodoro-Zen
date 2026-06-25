@@ -357,11 +357,11 @@
       .replace(/'/g, '&#39;');
   }
 
-  const addTaskForm = document.querySelector('.add-task');
+  const addTaskForm = document.getElementById('add-task-form');
   if (addTaskForm) {
     const taskNameInput = addTaskForm.querySelector('.task-name');
     const taskDurationInput = addTaskForm.querySelector('.task-duration');
-    const addTaskBtn = addTaskForm.querySelector('button.add-task');
+    const addTaskBtn = document.getElementById('add-task-btn');
 
     function formatDurationInput(raw) {
       const v = String(raw).trim();
