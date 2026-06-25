@@ -435,7 +435,8 @@
 
     updateAddTaskState = () => {
       if (!addTaskBtn) return;
-      addTaskBtn.disabled = taskList.querySelectorAll('.task-item').length >= MAX_TASKS;
+      // Keep the add button enabled so users can still see the upgrade prompt when they reach the task limit.
+      addTaskBtn.disabled = false;
     };
 
     if (addTaskBtn) {
